@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+     <a href="/show_dashboard">Home</a> | <a href="/">Logout</a>
+     <h1>{{ products.destination}}</h1>
+     <p>Planned By: {{ products.added_by }}</p> 
+    <p>Description: {{ products.plan }}</p>
+    <p>Travel Date From: {{ products.start_date }}</p>
+    <p>Travel Date To: {{ products.start_date }}</p>
+     
+     <h1>Other users's joining the trip</h1>
+     
+     
+     {% for user in users %}
+
+      
+     <p>{{ user.name }}</p>
+     
+        
+     
+     {% endfor %}  
+     <!-- { continue }   -->
+    </body>
+</html> 

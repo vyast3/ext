@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+    <p> Hello,  {{ user.name }}!    |   <a href="/"> Logout </a>
+     <h2>Your Trip Schedules:</h2>
+  <table border="1px solid black" padding="20px">
+      <tr>
+          <td>Destination</td>
+          <td>Travel Start Date</td>
+          <td>Travel End Date</td>
+          <td>Plan</td>
+      </tr>
+        {% for product in products %}
+        <tr>
+          <td><a href="/show_travellist/{{ product.id }}">{{ product.destination }}</a></td>
+          <td>{{ product.start_date }}</td>
+          <td>{{ product.end_date }}</td>
+          <td>{{ product.plan }}</td>
+          
+      </tr>
+
+        {% endfor %}
+
+  </table>
+   <p></p>
+
+    <h2>Other User's Travel Plans:</h2>
+ <table border="1px solid black">
+      <tr>
+          <td>Name</td>
+           <td>Destination</td>
+          <td>Travel Start Date</td>
+          <td>Travel End Date</td>
+          <td>Do you want to join?</td>
+      </tr>
+        </tr>
+        {% for all in alls %}
+        <tr>
+            <td>{{ all.added_by }}</td>
+          <td><a href="/show_travellist/{{ all.id }}">{{ all.destination }}</a></td>
+          <td>{{ all.start_date }}</td>
+          <td>{{ all.end_date }}</td>
+          <td><a href="/add_list/{{ all.id }}">join</a></td>
+      </tr>
+
+        {% endfor %}
+  </table>
+
+  <p></p>
+
+     <a href="/travels/add/{{ user.id }}">Add Travel Plan</a>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+    <a href="/show_dashboard">Home</a>   |    <a href="/">Logout</a>
+    
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+     <h1>Add a Trip</h1>   
+    <form action="/create_list" method="POST">
+          {% csrf_token %}
+        <p><span>Destination: </span><input type="text" name="destination"></p>
+        <p><span>Description: </span><input type="text" name="description"></p>
+        <p><span>Travel Date From: </span><input type="text" name="start_date">*format must be 'YYYY-MM-DD'</p> 
+        <p><span>Travel Date To: </span><input type="text" name="end_date">*format must be 'YYYY-MM-DD'</p> 
+
+        <input type="submit" name="submit" value="ADD">
+
+    </form> 
+    </body>
+</html>
